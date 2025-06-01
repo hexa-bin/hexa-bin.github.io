@@ -3,142 +3,472 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mr. Hex — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <title>Mr. Hex | Cybersecurity Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" />
+  <!-- Favicon for branding -->
+  <link rel="icon" type="image/png" href="https://github.githubassets.com/favicons/favicon.png">
   <style>
-    :root {
-      --bg: #0d0d0d;
-      --text: #f0f0f0;
-      --accent: #ffcc00;
-      --card: #1a1a1a;
-      --link: #4ea5ff;
-      --badge-bg: #333;
-      --badge-text: #fff;
-    }
-    * {
-      box-sizing: border-box;
-    }
     body {
-      margin: 0;
-      padding: 2rem;
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Fira Code', monospace;
+      background: radial-gradient(ellipse at top, #000000 0%, #0c0c0c 100%);
+      color: #c0ffc0;
+      scroll-behavior: smooth;
+      /* Disable text selection */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: 900;
+      background: linear-gradient(to right, #39ff14, #00ffe7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 25px #00ff88;
+      animation: pulseGlow 3s infinite ease-in-out;
     }
-    header img {
-      width: 140px;
-      height: auto;
-      border-radius: 100px;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 12px var(--accent);
+    @keyframes pulseGlow {
+      0%, 100% { text-shadow: 0 0 25px #00ff88; }
+      50% { text-shadow: 0 0 60px #00ff88; }
     }
-    h1 {
-      margin: 1rem 0 0.5rem;
+    .section-title {
       font-size: 2rem;
+      font-weight: bold;
+      color: #00ff88;
+      border-left: 4px solid #00ff88;
+      padding-left: 1rem;
+      margin-top: 4rem;
     }
-    p.tagline {
-      font-size: 1rem;
-      color: #ccc;
+    .glow-card {
+      background: #0d0d0d;
+      border: 1px solid #1f1f1f;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 0 25px rgba(0, 255, 136, 0.08);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
     }
-    section {
-      max-width: 800px;
-      margin: 0 auto 2.5rem;
+    .glow-card:hover {
+      box-shadow: 0 0 60px rgba(0, 255, 136, 0.4);
+      transform: translateY(-5px) scale(1.02);
     }
-    h2 {
-      font-size: 1.2rem;
-      color: var(--accent);
-      border-bottom: 1px solid #333;
-      padding-bottom: 0.4rem;
+    .repo-tech {
+      font-size: 0.75rem;
+      color: #00ffe7;
+      font-weight: bold;
     }
-    .card {
-      background: var(--card);
-      padding: 1rem;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 10px rgba(255,255,255,0.05);
-    }
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .badges {
+    .tag-list {
       display: flex;
-      justify-content: center;
-      gap: 0.5rem;
       flex-wrap: wrap;
-      margin-top: 2rem;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
     }
-    .badge {
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 500;
+    .tag {
+      background: transparent;
+      color: #00ff88;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid #00ff88;
     }
-    footer {
-      text-align: center;
-      font-size: 0.75rem;
-      margin-top: 3rem;
-      color: #888;
+    .text-cyan-400 {
+      transition: color 0.3s ease;
+    }
+    .text-cyan-400:hover {
+      color: #ffffff;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="assets/BAvatar.png" alt="Mr. Hex Avatar" />
-    <h1>Hi, I’m Mr. Hex</h1>
-    <p class="tagline">Python Security Tools • Red, Blue & Purple Teaming • Ethical Hacking Projects</p>
-  </header>
+  <section class="hero text-center py-20">
+    <h1 class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-300">Mr. Hex</h1>
+    <p class="text-green-300 text-xl max-w-xl mx-auto mt-4">
+      Cybersecurity enthusiast building stealth tools, lab simulators & red-blue hybrid training environments.
+    </p>
+    <nav class="nav-links flex justify-center space-x-6 mt-6 text-green-400 font-medium">
+      <a href="#about">About</a>
+      <a href="#repos">GitHub Repos</a>
+      <a href="#blog">Blog</a>
+    </nav>
+  </section>
 
-  <section>
-    <h2>About Me</h2>
-    <div class="card">
-      Building cybersecurity tools and labs using Python. Interested in red teaming, malware behavior emulation, and defender/attacker simulation workflows. Passionate about blending red-blue into purple team-style challenges.
+  <!-- About Me Section -->
+  <section id="about" class="max-w-3xl mx-auto px-6 py-10">
+    <h2 class="section-title">👤 About Me</h2>
+    <p class="text-green-200 mt-4">
+      Hi, I'm Mr. Hex—a cybersecurity enthusiast passionate about red-blue team training, malware analysis, and building hands-on cyber labs. I love open source, CTFs, and sharing knowledge with the community.
+    </p>
+    <div class="flex space-x-4 mt-4">
+      <a href="mailto:pingthehex@gmail.com" class="text-cyan-400 hover:underline">Email</a>
+      <a href="https://github.com/hexa-bin" target="_blank" class="text-cyan-400 hover:underline">GitHub</a>
+    </div>
+    <!-- Centered GitHub Stats Badge -->
+    <img src="https://github-readme-stats.vercel.app/api?username=hexa-bin&show_icons=true&theme=radical" alt="GitHub Stats" class="my-6 mx-auto rounded-lg shadow-lg" />
+  </section>
+
+  <!-- Courses Section -->
+  <section id="courses" class="max-w-3xl mx-auto px-6 py-10">
+    <h2 class="section-title">🎓 Courses & Resources</h2>
+    <ul class="list-disc list-inside text-green-200 mt-4 space-y-4">
+      <li>
+        <a href="https://www.udemy.com/course/ethical-hacking-build-ransomware-with-control-center-poc" target="_blank" class="text-cyan-400 hover:underline font-semibold">
+          Build Ethical Ransomware with Control Center
+        </a>
+        <div class="text-sm text-gray-300">
+          Simulate ransomware behavior with Python, GUI & PHP backend<br>
+          <span class="text-yellow-300">⭐ 4.8 ★</span> | 390+ Students
+        </div>
+      </li>
+      <li>
+        <a href="https://www.udemy.com/course/ethical-hacking-build-your-own-password-cracker-with-python" target="_blank" class="text-cyan-400 hover:underline font-semibold">
+          Build a Password Cracker with Python
+        </a>
+        <div class="text-sm text-gray-300">
+          Crack ZIP, Word, PDF, Excel — brute force & dictionary attacks<br>
+          <span class="text-yellow-300">⭐ 5.0 ★</span> | 1,000+ Students
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="repos" class="max-w-6xl mx-auto px-6">
+    <h2 class="section-title">GitHub Repositories</h2>
+    <!-- Featured Project Card -->
+    <div class="glow-card mb-8 border-2 border-green-400">
+      <h3 class="text-2xl text-green-300 font-bold">⭐ Featured: Ransomware-POC</h3>
+      <p class="text-sm text-gray-300 mt-2">A safe, ethical ransomware simulator for blue team training. Used in real-world labs and workshops.</p>
+      <a href="https://github.com/hexa-bin/Ransomware-POC.git" target="_blank" class="text-cyan-400 hover:underline mt-2 block">View on GitHub →</a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="glow-card">
+        <h3 class="text-xl text-green-300 font-bold">🔐 Ransomware-POC</h3>
+        <p class="text-sm text-gray-300 mt-2">Ethical ransomware simulator with GUI and PHP control panel, used in sandboxed labs.</p>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">PHP</span>
+          <span class="tag">Encryption</span>
+        </div>
+        <div class="mt-4 text-sm flex justify-between items-center">
+          <span class="repo-tech">GUI Simulation</span>
+          <a href="https://github.com/hexa-bin/Ransomware-POC.git" target="_blank" class="text-cyan-400 hover:underline">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="glow-card">
+        <h3 class="text-xl text-green-300 font-bold">🔓 pass-cracker</h3>
+        <p class="text-sm text-gray-300 mt-2">ZIP, PDF, DOC brute-force & dictionary attack tool with modular plugins.</p>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">Hashcat</span>
+          <span class="tag">CLI Tool</span>
+        </div>
+        <div class="mt-4 text-sm flex justify-between items-center">
+          <span class="repo-tech">GPU Cracking</span>
+          <a href="https://github.com/hexa-bin/pass-cracker" target="_blank" class="text-cyan-400 hover:underline">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="glow-card">
+        <h3 class="text-xl text-green-300 font-bold">🛡️ threatlab</h3>
+        <p class="text-sm text-gray-300 mt-2">Live red-blue scoring environment with replay system, ELK stack logging, and fake attacker feeds.</p>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">ELK</span>
+          <span class="tag">Simulation</span>
+        </div>
+        <div class="mt-4 text-sm flex justify-between items-center">
+          <span class="repo-tech">SIEM Replay</span>
+          <a href="https://github.com/hexa-bin/threatlab" target="_blank" class="text-yellow-300 hover:underline">Coming Soon</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Projects & Labs</h2>
-    <div class="card">
-      🔐 <a href="https://github.com/hexa-bin/Ransomware-POC" target="_blank">Ransomware-POC</a><br />
-      Python + PHP ransomware simulator for ethical lab use.
+  <section id="blog" class="max-w-6xl mx-auto px-6">
+  <h2 class="section-title">Blog & CTF Writeups</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+    <div class="glow-card">
+      <h3 class="text-xl text-green-300 font-bold">📁 CTF: Cracking ZIPs in Seconds</h3>
+      <p class="text-sm text-gray-300 mt-2">How I tuned my Python cracker to brute force ZIP archives with GPU acceleration and hybrid methods.</p>
+      <div class="tag-list">
+        <span class="tag">CTF</span>
+        <span class="tag">Hashcat</span>
+        <span class="tag">ZIP</span>
+      </div>
+      <button onclick="openBlogModal(this.dataset.blog)" data-blog="blog1" class="mt-4 block text-sm text-cyan-400 hover:underline">Read More →</button>
     </div>
-    <div class="card">
-      🧪 Password Cracker Lab<br />
-      Brute force & dictionary attack tool for ZIP, PDF, Excel, and Word.
-    </div>
-  </section>
 
-  <section>
-    <h2>Courses</h2>
-    <div class="card">
-      🎓 <a href="https://www.udemy.com/course/ethical-hacking-build-ransomware-with-control-center-poc/" target="_blank">Ethical Ransomware Lab (Udemy)</a><br />
-      Full stack ransomware simulation with GUI & control panel.
+    <div class="glow-card">
+      <h3 class="text-xl text-green-300 font-bold">🖥️ Building a Fake C2 Console</h3>
+      <p class="text-sm text-gray-300 mt-2">Walkthrough on creating a simulated command-and-control dashboard for training blue teams.</p>
+      <div class="tag-list">
+        <span class="tag">C2</span>
+        <span class="tag">SimLab</span>
+        <span class="tag">UX</span>
+      </div>
+      <button onclick="openBlogModal(this.dataset.blog)" data-blog="blog2" class="mt-4 block text-sm text-cyan-400 hover:underline">Read More →</button>
     </div>
-    <div class="card">
-      🧠 <a href="https://www.udemy.com/course/ethical-hacking-build-your-own-password-cracker-with-python/" target="_blank">Password Cracker with Python (Udemy)</a><br />
-      Build ZIP, Word, PDF password cracking tool from scratch.
-    </div>
-  </section>
 
-  <div class="badges">
-    <div class="badge">🔬 Built for Labs</div>
-    <div class="badge">🐍 Powered by Python</div>
-    <div class="badge">🛡️ Secured by Ethics</div>
+    <div class="glow-card">
+      <h3 class="text-xl text-green-300 font-bold">🧠 Analyzing Obfuscated Malware</h3>
+      <p class="text-sm text-gray-300 mt-2">Reverse-engineering encrypted Python payloads to uncover command patterns and control logic.</p>
+      <div class="tag-list">
+        <span class="tag">Malware</span>
+        <span class="tag">Obfuscation</span>
+        <span class="tag">Python</span>
+      </div>
+      <button onclick="openBlogModal(this.dataset.blog)" data-blog="blog3" class="mt-4 block text-sm text-cyan-400 hover:underline">Read More →</button>
+    </div>
   </div>
+</section>
 
-  <footer>
-    &copy; 2025 Mr. Hex — All rights reserved.
-  </footer>
+  <section id="tools" class="max-w-6xl mx-auto px-6">
+  <h2 class="section-title">🧪 Tools & Cyber Utilities</h2>
+  <div class="glow-card mt-4">
+    <p class="text-sm text-gray-300 mb-2">Enter any text below and choose an encryption method:</p>
+    <textarea id="inputText" rows="4" class="w-full bg-black border border-green-500 text-green-300 p-2 rounded mb-4"></textarea>
+
+    <div class="flex flex-wrap gap-4">
+      <button onclick="encrypt('base64')" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-500 transition-colors duration-200">
+        <span class="loading hidden">⌛</span>
+        <span class="normal">🔒 Base64 Encode</span>
+      </button>
+      <button onclick="encrypt('hex')" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-500 transition-colors duration-200">
+        <span class="loading hidden">⌛</span>
+        <span class="normal">🔒 Hex Encode</span>
+      </button>
+      <button onclick="encrypt('reverse')" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-500 transition-colors duration-200">
+        <span class="loading hidden">⌛</span>
+        <span class="normal">🔁 Reverse</span>
+      </button>
+    </div>
+
+    <div class="mt-6">
+  <h3 class="text-green-300 text-lg font-semibold mb-2">🔐 Encrypted Output</h3>
+  <pre id="outputText" class="bg-black text-green-400 p-4 rounded border border-green-600 whitespace-pre-wrap break-words"></pre>
+  <button id="copyButton" onclick="copyEncrypted()" class="mt-2 text-sm text-cyan-400 hover:underline">📋 Copy Output</button>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="max-w-4xl mx-auto px-6 py-10">
+  <h2 class="section-title">🛠️ Skills & Tools</h2>
+  <div class="flex flex-wrap gap-6 mt-4 items-center">
+    <span class="tag bg-transparent flex items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="28" height="28"/>
+      Python
+    </span>
+    <span class="tag bg-transparent flex items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="28" height="28"/>
+      Linux
+    </span>
+    <span class="tag bg-transparent flex items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" width="28" height="28"/>
+      Docker
+    </span>
+    <span class="tag bg-transparent flex items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" width="28" height="28"/>
+      PHP
+    </span>
+    <span class="tag bg-transparent flex items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" width="28" height="28"/>
+      Bash
+    </span>
+    <span class="tag bg-transparent flex items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="28" height="28"/>
+      HTML5
+    </span>
+    <span class="tag bg-transparent flex items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="28" height="28"/>
+      CSS3
+    </span>
+    <span class="tag bg-transparent flex items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="28" height="28"/>
+      JavaScript
+    </span>
+  </div>
+</section>
+
+<button id="scrollTop" class="fixed bottom-8 right-8 bg-green-700 p-3 rounded-full shadow-lg hidden hover:bg-green-600 transition-colors duration-200 z-50">
+    ⬆️
+  </button>
+
+  <script>
+    // Add to your existing script section
+    const scrollBtn = document.getElementById('scrollTop');
+    window.onscroll = () => {
+      if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        scrollBtn.classList.remove('hidden');
+      } else {
+        scrollBtn.classList.add('hidden');
+      }
+    };
+    scrollBtn.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+  </script>
+
+<script>
+  function encrypt(type) {
+    const input = document.getElementById('inputText').value;
+    if (!input) {
+      document.getElementById('outputText').textContent = '⚠️ Please enter some text first';
+      return;
+    }
+    
+    const button = event.currentTarget;
+    button.querySelector('.normal').classList.add('hidden');
+    button.querySelector('.loading').classList.remove('hidden');
+    
+    let result = '';
+    try {
+      switch (type) {
+        case 'base64':
+          result = btoa(unescape(encodeURIComponent(input)));
+          break;
+        case 'hex':
+          result = [...input].map(c => c.charCodeAt(0).toString(16).padStart(2, '0')).join(' ');
+          break;
+        case 'reverse':
+          result = input.split('').reverse().join('');
+          break;
+        default:
+          result = '❌ Unsupported method';
+      }
+    } catch (error) {
+      result = `❌ Error: ${error.message}`;
+    } finally {
+      setTimeout(() => {
+        button.querySelector('.loading').classList.add('hidden');
+        button.querySelector('.normal').classList.remove('hidden');
+        document.getElementById('outputText').textContent = result;
+      }, 300);
+    }
+  }
+
+  function clearOutput() {
+    document.getElementById('inputText').value = '';
+    document.getElementById('outputText').textContent = '';
+  }
+
+  function openBlogModal(id) {
+    const modal = document.getElementById('blogModal');
+    const content = document.getElementById('blogModalContent');
+    modal.classList.remove('hidden');
+    if (id === 'blog1') content.innerHTML = `
+      <h2>CTF: Cracking ZIPs in Seconds</h2>
+      <p>In this challenge, I was tasked with cracking ZIP archives that used complex or padded passwords. Rather than relying on slow sequential brute-force methods, I built a custom Python tool that integrates with Hashcat for GPU-accelerated cracking. I also wrote a dynamic dictionary generator that pulls keywords from known leaks, metadata, and web history related to the target scenario.</p>
+      <p>The ZIP headers were parsed with Python's zipfile module, and pre-cracking validations filtered corrupted or multi-layered files. With hybrid rules enabled and multithreaded shell control, I was able to reduce attack time on average by 82%.</p>
+      <p>This project helped me better understand password entropy, GPU optimization, and how ZIP-specific encryption works under the hood.</p>
+    `;
+    if (id === 'blog2') content.innerHTML = `
+      <h2>Building a Fake C2 Console</h2>
+      <p>This blog explores the development of a fake command-and-control interface that looks and behaves like a real cyber attack dashboard. Using HTML, CSS, and JavaScript, I simulate live agent logs, command input history, and system surveillance triggers.</p>
+      <p>The purpose is to help blue team members practice their detection and response skills in a realistic but controlled environment. This lab became part of my ThreatLab series, used in red vs. blue team matchups.</p>
+      <p>Bonus: I implemented an animated terminal stream that reacts to predefined events — helping students visualize post-exploitation behaviors safely.</p>`;
+    if (id === 'blog3') content.innerHTML = `
+      <h2>Analyzing Obfuscated Malware</h2>
+      <p>In this technical analysis, I take apart several layers of obfuscated Python malware samples. I showcase techniques like base64 decoding, string decryption, control flow unwinding, and AST parsing.</p>
+      <p>One case involved a Python dropper that encoded its payload in hex-escaped format. I wrote a script to auto-detect and decode the blob, reconstruct the malware logic, and trace its communication behavior.</p>
+      <p>It ends with sandboxing and simulated execution in a container to understand real-time IOCs, making this an ideal guide for beginner reverse engineers.</p>`;
+  }
+
+  function closeBlogModal() {
+    document.getElementById('blogModal').classList.add('hidden');
+  }
+
+  function copyEncrypted() {
+    const output = document.getElementById('outputText');
+    if (!output) return;
+    const text = output.textContent.trim();
+    if (!text) {
+      alert('No encrypted text to copy.');
+      return;
+    }
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyButton');
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => {
+        btn.textContent = '📋 Copy Output';
+      }, 1500);
+    }).catch(err => {
+      alert('Failed to copy: ' + err);
+    });
+  }
+</script>
+<!-- No further errors detected. The HTML is valid and functional. -->
+  <footer class="text-center text-gray-500 text-xs py-10 mt-20 border-t border-green-900">
+    <p>&copy; 2024 Mr. Hex — Built for cybersecurity, crafted with care.</p>
+    <div class="mt-4">
+      <a href="mailto:pingthehex@gmail.com" class="text-green-400 hover:underline">pingthehex@gmail.com</a>
+      <span class="mx-2">|</span>
+      <a href="https://github.com/hexa-bin" target="_blank" class="text-green-400 hover:underline">GitHub Profile</a>
+    </div>
+  <div id="blogModal" class="fixed inset-0 hidden bg-black bg-opacity-80 z-50 flex items-center justify-center">
+  <div class="bg-gray-900 border border-green-600 rounded-xl max-w-2xl p-6 text-green-300 relative">
+    <button onclick="closeBlogModal()" class="absolute top-2 right-4 text-red-500 font-bold">✕</button>
+    <div id="blogModalContent" class="prose prose-invert max-w-full"></div>
+  </div>
+</div>
+
+</footer>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Add scroll-based animations
+    const cards = document.querySelectorAll('.glow-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeIn');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => {
+      card.style.opacity = 0;
+      observer.observe(card);
+    });
+
+    // --- Security Features: Disable right-click, drag/drop, DevTools shortcuts, copy, and selection ---
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('dragstart', e => e.preventDefault());
+    document.addEventListener('drop', e => e.preventDefault());
+    document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('keydown', function(e) {
+      // F12
+      if (e.key === 'F12') e.preventDefault();
+      // Ctrl+Shift+I/J/C/U
+      if (e.ctrlKey && e.shiftKey && ['I','J','C','U'].includes(e.key.toUpperCase())) e.preventDefault();
+      // Ctrl+U
+      if (e.ctrlKey && e.key.toUpperCase() === 'U') e.preventDefault();
+      // Ctrl+C (copy)
+      if (e.ctrlKey && e.key.toUpperCase() === 'C') e.preventDefault();
+      // Ctrl+A (select all)
+      if (e.ctrlKey && e.key.toUpperCase() === 'A') e.preventDefault();
+    });
+    // Disable text selection via mouse
+    document.addEventListener('selectstart', e => e.preventDefault());
+  </script>
+  <style>
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease forwards;
+    }
+  </style>
 </body>
 </html>
