@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mr. Hex | Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+    header img {
+      width: 120px;
+      border-radius: 50%;
+      background: #1f1f1f;
+      padding: 6px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 1rem 0 0.2rem;
+    }
+    p.tagline {
+      font-size: 1.1rem;
+      color: #aaa;
+    }
+    section {
+      width: 90%;
+      max-width: 700px;
+      margin: 2rem 0;
+    }
+    .projects, .courses {
+      margin-top: 1rem;
+    }
+    .card {
+      background: #1a1a1a;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .card a {
+      color: #58a6ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .badges img {
+      margin: 0.5rem;
+      height: 28px;
+    }
+    footer {
+      margin: 3rem 0 1rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/BAvatar.png" alt="Mr. Hex Avatar" />
+    <h1>Hi, I’m Mr. Hex</h1>
+    <p class="tagline">Python Security Tools • Red, Blue & Purple Teaming • Ethical Hacking Projects</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        Building cybersecurity tools and labs using Python. Interested in red teaming,
+        malware behavior emulation, and defender/attacker simulation workflows.
+        Passionate about blending red-blue into purple team-style challenges.
+      </p>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Projects & Labs</h2>
+    <div class="card">
+      <a href="https://github.com/hexa-bin/Ransomware-POC" target="_blank">🔐 Ransomware-POC</a>
+      <p>Python + PHP ransomware simulator for ethical lab use.</p>
+    </div>
+    <div class="card">
+      <a href="https://www.udemy.com/course/ethical-hacking-build-your-own-password-cracker-with-python" target="_blank">🔓 Password Cracker Lab</a>
+      <p>Brute force & dictionary attack tool for ZIP, PDF, Excel, and Word.</p>
+    </div>
+  </section>
+
+  <section class="courses">
+    <h2>Courses</h2>
+    <div class="card">
+      <a href="https://www.udemy.com/course/ethical-hacking-build-ransomware-with-control-center-poc/" target="_blank">
+        🧠 Ethical Ransomware Lab (Udemy)
+      </a>
+      <p>Full stack ransomware simulation with GUI & control panel.</p>
+    </div>
+    <div class="card">
+      <a href="https://www.udemy.com/course/ethical-hacking-build-your-own-password-cracker-with-python" target="_blank">
+        🧠 Password Cracker with Python (Udemy)
+      </a>
+      <p>Build ZIP, Word, PDF password cracking tool from scratch.</p>
+    </div>
+  </section>
+
+  <section class="badges" style="text-align:center">
+    <img src="https://img.shields.io/badge/BUILT%20FOR-LABS-blueviolet?style=for-the-badge&logo=vercel" />
+    <img src="https://img.shields.io/badge/POWERED%20BY-PYTHON-yellow?style=for-the-badge&logo=python" />
+    <img src="https://img.shields.io/badge/SECURED%20BY-ETHICS-red?style=for-the-badge&logo=security" />
+  </section>
+
+  <footer>
+    &copy; 2025 Mr. Hex — All rights reserved.
+  </footer>
+</body>
+</html>
